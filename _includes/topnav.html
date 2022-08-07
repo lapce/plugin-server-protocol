@@ -1,7 +1,7 @@
 <header class="navbar navbar-expand-lg navbar-dark bg-primary lsp-navbar">
     <div class="container navbar-container">
         <a class="navbar-brand" href="{{ site.baseurl }}/">
-            <h1>LSP / LSIF</h1>
+            <h1>PSP</h1>
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
 
             <ul class="navbar-nav ml-auto">
                 <li {% if page.sectionid=='howItWorks' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
-                    <a class="nav-link" href='{{ "/overviews/lsp/overview" | prepend: site.baseurl }}'>Overview</a>
+                    <a class="nav-link" href='{{ "/overviews/psp/overview" | prepend: site.baseurl }}'>Overview</a>
                 </li>
                 <li {% if page.sectionid=='implementors' %} class="nav-item active" {% else %} class="nav-item" {% endif %}>
                     <a class="nav-link" href="{{ implementors.first.url | prepend: site.baseurl }}">Implementations</a>

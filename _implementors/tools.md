@@ -1,7 +1,7 @@
 ---
 layout: implementors
 title:  "Tools supporting the LSP"
-shortTitle: "Supporting Tools"
+shortTitle: "LSP Supporting Tools"
 author: Microsoft
 index: 2
 ---
@@ -23,7 +23,7 @@ index: 2
 | Eclipse IDE | Eclipse,Red Hat | [Eclipse community](https://projects.eclipse.org/projects/technology.lsp4e/who), [Eclipse LSP4E](https://projects.eclipse.org/projects/technology.lsp4e) |
 | Emacs | [Vibhav Pant](https://github.com/vibhavp) | [emacs language server client](https://github.com/emacs-lsp/lsp-mode/) |
 | Emacs | [João Távora](https://github.com/joaotavora) | [Eglot](https://github.com/joaotavora/eglot) |
-| Emacs | [Andy Stewart](https://github.com/manateelazycat/) | [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/) | 
+| Emacs | [Andy Stewart](https://github.com/manateelazycat/) | [lsp-bridge](https://github.com/manateelazycat/lsp-bridge/) |
 | [GNOME Builder](https://wiki.gnome.org/Apps/Builder) | [gnome.org](https://wiki.gnome.org/Apps/Builder/) | [language server client](https://git.gnome.org/browse/gnome-builder/tree/src/libide/lsp) |
 | [Helix Editor](https://helix-editor.com/) | [Blaž Hrastnik](https://github.com/archseer) | [helix](https://github.com/helix-editor/helix) |
 | [JCIDE](https://www.javacardos.com/tools) | [Javacardos](https://www.javacardos.com) | [JCIDE](https://www.javacardos.com/javacardforum/viewtopic.php?f=5&t=2108&p=6175#p6175) |
@@ -33,7 +33,7 @@ index: 2
 | [Moonshine IDE](https://moonshine-ide.com) | [Prominic.NET](https://github.com/prominic) | [Moonshine-IDE](https://github.com/prominic/Moonshine-IDE) |
 | [MS Monaco Editor](https://github.com/Microsoft/monaco-editor) | [TypeFox](https://github.com/TypeFox) | [monaco-languageclient](https://www.npmjs.com/package/monaco-languageclient) |
 | [MS Paint IDE](https://ms-paint-i.de/) | [RubbaBoy](https://github.com/RubbaBoy) | [MS Paint IDE](https://github.com/MSPaintIDE/MSPaintIDE) |
-| [Multiple editors](https://github.com/Valloric/ycmd#known-ycmd-clients) | Ycmd team | [ycmd](https://github.com/Valloric/ycmd) | 
+| [Multiple editors](https://github.com/Valloric/ycmd#known-ycmd-clients) | Ycmd team | [ycmd](https://github.com/Valloric/ycmd) |
 | [Neovim](https://neovim.io/) | [Neovim Team](https://github.com/neovim) | [native support since 0.5](https://neovim.io/doc/lsp/) |
 | [Nova](https://nova.app) | [Panic Inc](http://panic.com) | Proprietary |
 | [Oni](https://www.onivim.io) | [@oni_vim](https://twitter.com/oni_vim) | [Oni's Features](https://www.onivim.io/Features) |
@@ -41,7 +41,7 @@ index: 2
 | [Qt Creator](https://doc-snapshots.qt.io/qtcreator-4.9/creator-language-servers.html) | [The Qt Company](http://qt.io/) | [qtcreator](https://github.com/qt-creator/qt-creator)
 | [RAD Studio](https://www.embarcadero.com/products/rad-studio) ([Delphi](https://www.embarcadero.com/products/delphi) and [C++Builder](https://www.embarcadero.com/products/cbuilder)) | [Embarcadero](https://www.embarcadero.com/) | Proprietary |
 | [RJ TextEd](https://www.rj-texted.se/) | [Rickard Johansson](https://github.com/rickard67) | [lsp](https://github.com/rickard67/LSP-Pascal-Library) |
-| [Spyder](http://spyder-ide.org) | [Spyder Dev Team](https://github.com/spyder-ide) | [spyder](https://github.com/spyder-ide/spyder) | 
+| [Spyder](http://spyder-ide.org) | [Spyder Dev Team](https://github.com/spyder-ide) | [spyder](https://github.com/spyder-ide/spyder) |
 | [Sublime Text](https://www.sublimetext.com/) | [Raoul Wols](https://github.com/rwols) | [lsp](https://github.com/sublimelsp/LSP) |
 | [Theia](https://github.com/theia-ide/theia) | [theia-ide](https://github.com/theia-ide) | [theia](https://github.com/theia-ide/theia) |
 | vim8 and [neovim](https://neovim.io/) | [Junfeng Li](https://github.com/autozimu) | [LanguageClient-neovim](https://github.com/autozimu/LanguageClient-neovim) |

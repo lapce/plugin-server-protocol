@@ -9,8 +9,6 @@ index: 2
 redirect_from:
   - specification
   - specification/
-  - specifications/specification-current
-  - specifications/specification-current/
 ---
 
 This document describes the 3.17.x version of the language server protocol. An implementation for node of the 3.17.x version of the protocol can be found [here](https://github.com/Microsoft/vscode-languageserver-node).

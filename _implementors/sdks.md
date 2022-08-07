@@ -1,7 +1,7 @@
 ---
 layout: implementors
 title:  "SDKs for the LSP"
-shortTitle: "SDKs"
+shortTitle: "LSP SDKs"
 author: Microsoft
 index: 3
 ---
