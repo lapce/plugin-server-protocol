@@ -21,13 +21,13 @@ PSP is a win for both plugin providers and tools vendors!
 
 PSP uses the same base as LSP, only with some tweaks and added methods. The JSON-RPC communication is still the same, even some requests are reused. In short, PSP works as a superset of LSP. The most notable differences are:
 
-- New fields in the initialize handshake for permissions and events. This is done to handle permissions based plugins: the server can reject a plugin or a request if it doesn't match the user allowed permissions.
+- New fields in the initialize handshake for events. A plugin will only receive subscribed events.
 - Some LSP Methods are disabled. This is because some of these requests only make sense in a Language Server context (TODO: add one example of such requests)
 - New Methods are added, to reflect all type of actions needed for a plugin (modifying settings, adding palette commands, drawing on screen,etc.)
 
-## Capabilities and Permissions
+## Capabilities
 
-Along Capabilities that work the same way LSP capabilities work, PSP provides permissions: on startup a list of permissions is sent during the initialize handshake. Those permissions are used to validate each request received by the client.
+PSP uses the same kind of capabilities that LSP defined, and adds more.
 
 ## Libraries (SDKs) for PSP providers and consumers
 

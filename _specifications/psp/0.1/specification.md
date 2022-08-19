@@ -432,3 +432,246 @@ As said PSP defines a set of requests, responses and notifications based on LSP.
 * an optional _Registration Options_ section describing the registration option if the request or notification supports dynamic capability registration. See the [register](#client_registerCapability) and [unregister](#client_unregisterCapability) request for how this works in detail.
 * a _Request_ section describing the format of the request sent. The method is a string identifying the request the params are documented using a TypeScript interface. It is also documented whether the request supports work done progress and partial result progress.
 * a _Response_ section describing the format of the response. The result item describes the returned data in case of a success. The optional partial result item describes the returned data of a partial result notification. The error.data describes the returned data in case of an error. Please remember that in case of a failure the response already contains an error.code and an error.message field. These fields are only specified if the protocol forces the use of certain error codes or messages. In cases where the server can decide on these values freely they aren't listed here.
+
+### <a href="#basicJsonStructures" name="basicJsonStructures" class="anchor"> Basic JSON Structures </a>
+
+There are quite some JSON structures that are shared between different requests and notifications. Their structure and capabilities are document in this section.
+
+{% include_relative types/uri.md %}
+{% include_relative types/regexp.md %}
+{% include_relative types/enumerations.md %}
+{% include_relative types/textDocuments.md %}
+{% include_relative types/position.md %}
+{% include_relative types/range.md %}
+{% include_relative types/textDocumentItem.md %}
+{% include_relative types/textDocumentIdentifier.md %}
+{% include_relative types/versionedTextDocumentIdentifier.md %}
+{% include_relative types/textDocumentPositionParams.md %}
+{% include_relative types/documentFilter.md %}
+
+{% include_relative types/textEdit.md %}
+{% include_relative types/textEditArray.md %}
+{% include_relative types/textDocumentEdit.md %}
+{% include_relative types/location.md %}
+{% include_relative types/locationLink.md %}
+{% include_relative types/diagnostic.md %}
+{% include_relative types/command.md %}
+{% include_relative types/markupContent.md %}
+{% include_relative types/resourceChanges.md %}
+{% include_relative types/workspaceEdit.md %}
+
+{% include_relative types/workDoneProgress.md %}
+{% include_relative types/partialResults.md %}
+{% include_relative types/partialResultParams.md %}
+{% include_relative types/traceValue.md %}
+
+### <a href="#lifeCycleMessages" name="lifeCycleMessages" class="anchor"> Server lifecycle </a>
+
+The current protocol specification defines that the lifecycle of a server is managed by the client (e.g. a tool like Lapce, VS Code or Emacs). It is up to the client to decide when to start (process-wise) and when to shutdown a server.
+
+_From: LSP (Modified)_
+{% include_relative general/initialize.md %}
+_From: LSP_
+{% include_relative general/initialized.md %}
+_From: LSP_
+{% include_relative client/registerCapability.md %}
+_From: LSP_
+{% include_relative client/unregisterCapability.md %}
+_From: LSP_
+{% include_relative general/setTrace.md %}
+_From: LSP_
+{% include_relative general/logTrace.md %}
+_From: LSP_
+{% include_relative general/shutdown.md %}
+_From: LSP_
+{% include_relative general/exit.md %}
+
+<br>
+### <a href="#textDocument_synchronization" name="textDocument_synchronization" class="anchor">Text Document Synchronization</a>
+
+<br>
+<br>
+
+Client support for `textDocument/didOpen`, `textDocument/didChange` and `textDocument/didClose` notifications is mandatory in the protocol and clients can not opt out supporting them. This includes both full and incremental synchronization in the `textDocument/didChange` notification. In addition a server must either implement all three of them or none. Their capabilities are therefore controlled via a combined client and server capability. Opting out of text document synchronization makes only sense if the documents shown by the client are read only. Otherwise the server might receive request for documents, for which the content is managed in the client (e.g. they might have changed).
+
+
+<a href="#textDocument_synchronization_cc" name="textDocument_synchronization_cc" class="anchor">_Client Capability_:</a>
+* property path (optional): `textDocument.synchronization.dynamicRegistration`
+* property type: `boolean`
+
+Controls whether text document synchronization supports dynamic registration.
+
+<a href="#textDocument_synchronization_sc" name="textDocument_synchronization_sc" class="anchor">_Server Capability_:</a>
+* property path (optional): `textDocumentSync`
+* property type: `TextDocumentSyncKind | TextDocumentSyncOptions`. The below definition of the `TextDocumentSyncOptions` only covers the properties specific to the open, change and close notifications. A complete definition covering all properties can be found [here](#textDocument_didClose):
+
+<div class="anchorHolder"><a href="#textDocumentSyncKind" name="textDocumentSyncKind" class="linkableAnchor"></a></div>
+
+```typescript
+/**
+ * Defines how the host (editor) should sync document changes to the language
+ * server.
+ */
+export namespace TextDocumentSyncKind {
+  /**
+   * Documents should not be synced at all.
+   */
+  export const None = 0;
+
+  /**
+   * Documents are synced by always sending the full content
+   * of the document.
+   */
+  export const Full = 1;
+
+  /**
+   * Documents are synced by sending the full content on open.
+   * After that only incremental updates to the document are
+   * sent.
+   */
+  export const Incremental = 2;
+}
+```
+
+<div class="anchorHolder"><a href="#textDocumentSyncOptions" name="textDocumentSyncOptions" class="linkableAnchor"></a></div>
+
+```typescript
+export interface TextDocumentSyncOptions {
+  /**
+   * Open and close notifications are sent to the server. If omitted open
+   * close notifications should not be sent.
+   */
+  openClose?: boolean;
+
+  /**
+   * Change notifications are sent to the server. See
+   * TextDocumentSyncKind.None, TextDocumentSyncKind.Full and
+   * TextDocumentSyncKind.Incremental. If omitted it defaults to
+   * TextDocumentSyncKind.None.
+   */
+  change?: TextDocumentSyncKind;
+}
+```
+
+_From: LSP_
+{% include_relative textDocument/didOpen.md %}
+_From: LSP_
+{% include_relative textDocument/didChange.md %}
+_From: LSP_
+{% include_relative textDocument/willSave.md %}
+_From: LSP_
+{% include_relative textDocument/willSaveWaitUntil.md %}
+_From: LSP_
+{% include_relative textDocument/didSave.md %}
+_From: LSP_
+{% include_relative textDocument/didClose.md %}
+_From: LSP_
+{% include_relative textDocument/didRename.md %}
+
+The final structure of the `TextDocumentSyncClientCapabilities` and the `TextDocumentSyncOptions` server options look like this
+
+<div class="anchorHolder"><a href="#textDocumentSyncClientCapabilities" name="textDocumentSyncClientCapabilities" class="linkableAnchor"></a></div>
+
+```typescript
+export interface TextDocumentSyncClientCapabilities {
+  /**
+   * Whether text document synchronization supports dynamic registration.
+   */
+  dynamicRegistration?: boolean;
+
+  /**
+   * The client supports sending will save notifications.
+   */
+  willSave?: boolean;
+
+  /**
+   * The client supports sending a will save request and
+   * waits for a response providing text edits which will
+   * be applied to the document before it is saved.
+   */
+  willSaveWaitUntil?: boolean;
+
+  /**
+   * The client supports did save notifications.
+   */
+  didSave?: boolean;
+}
+```
+
+<div class="anchorHolder"><a href="#textDocumentSyncKind" name="textDocumentSyncKind" class="linkableAnchor"></a></div>
+
+```typescript
+/**
+ * Defines how the host (editor) should sync document changes to the language
+ * server.
+ */
+export namespace TextDocumentSyncKind {
+  /**
+   * Documents should not be synced at all.
+   */
+  export const None = 0;
+
+  /**
+   * Documents are synced by always sending the full content
+   * of the document.
+   */
+  export const Full = 1;
+
+  /**
+   * Documents are synced by sending the full content on open.
+   * After that only incremental updates to the document are
+   * send.
+   */
+  export const Incremental = 2;
+}
+
+export type TextDocumentSyncKind = 0 | 1 | 2;
+```
+
+<div class="anchorHolder"><a href="#textDocumentSyncOptions" name="textDocumentSyncOptions" class="linkableAnchor"></a></div>
+
+```typescript
+export interface TextDocumentSyncOptions {
+  /**
+   * Open and close notifications are sent to the server. If omitted open
+   * close notification should not be sent.
+   */
+  openClose?: boolean;
+  /**
+   * Change notifications are sent to the server. See
+   * TextDocumentSyncKind.None, TextDocumentSyncKind.Full and
+   * TextDocumentSyncKind.Incremental. If omitted it defaults to
+   * TextDocumentSyncKind.None.
+   */
+  change?: TextDocumentSyncKind;
+  /**
+   * If present will save notifications are sent to the server. If omitted
+   * the notification should not be sent.
+   */
+  willSave?: boolean;
+  /**
+   * If present will save wait until requests are sent to the server. If
+   * omitted the request should not be sent.
+   */
+  willSaveWaitUntil?: boolean;
+  /**
+   * If present save notifications are sent to the server. If omitted the
+   * notification should not be sent.
+   */
+  save?: boolean | SaveOptions;
+}
+```
+
+_From: LSP_
+{% include_relative notebookDocument/notebook.md %}
+
+### <a href="#languageFeatures" name="languageFeatures" class="anchor">Language Features</a>
+
+Plugin Feature provide the actual smarts in the Plugin server protocol. The are usually executed on a [text document, position] tuple. The main language feature categories are:
+
+* LSP features (steming from LSP), and some methods for LSP handling
+* Settings features, like adding new settings or registering commands
+* UI features, like drawing on the screen, or in a new window.
+
+_From: PSP_
+{% include_relative plugin/lsp.md %}
