@@ -2,7 +2,7 @@
 
 > *Since version 0.1.0*
 
-The Start LSP Server request is sent from the server to the client to order spawning an LSP server.
+The Start LSP Server request is sent from the server to the client when a standalone LSP server needs to be spawned.
 
 _Client Capability_:
 * property name (optional): `general.LSP`
@@ -10,12 +10,6 @@ _Client Capability_:
 _Server Capability_:
 * property name (optional): `general.LSP`
 
-<div class="anchorHolder"><a href="#startLSPOptions" name="startLSPOptions" class="linkableAnchor"></a></div>
-
-```typescript
-export interface StartLSPOptions {
-}
-```
 
 _Request_:
 * method: `start_lsp`
@@ -23,19 +17,18 @@ _Request_:
 
 <div class="anchorHolder"><a href="#StartLSPParams" name="StartLSPParams" class="linkableAnchor"></a></div>
 
-
 ```typescript
 export interface StartLSPParams {
     serverUri: URI;
-        languageID: URI;
-        /**
-         * Options passed to the invoked LSP server
-         */
-        Options: any;
-        /**
-         * Leave the resolving of the binary path to be handled by the client
-         */
-        resolvePath: boolean;
+    languageID: String[];
+    /**
+     * Options passed to the invoked LSP server
+     */
+    Options: any;
+    /**
+     * Leave the resolving of the binary path to be handled by the client
+     */
+    resolvePath: boolean;
 }
 ```
 
