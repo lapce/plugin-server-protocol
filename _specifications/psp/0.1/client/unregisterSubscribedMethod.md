@@ -1,9 +1,9 @@
 #### <a href="#client_unregisterSubscribedMethod" name="client_unregisterSubscribedMethod" class="anchor">Unregister Capability (:arrow_right_hook:)</a>
 
-The `client/unregisterSubscribedMethod` request is sent from the server to the client to unregister a previously registered capability.
+The `methodclient/unregister_subscribed_method` request is sent from the server to the client to unregister a previously registered method.
 
 _Request_:
-* method: 'client/unregisterSubscribedMethod'
+* method: 'methodclient/unregister_subscribed_method'
 * params: `UnregistrationParams`
 
 Where `UnregistrationParams` are defined as follows:
@@ -12,7 +12,7 @@ Where `UnregistrationParams` are defined as follows:
 
 ```typescript
 /**
- * General parameters to unregister a capability.
+ * General parameters to unregister a method.
  */
 export interface Unregistration {
     /**
@@ -22,7 +22,7 @@ export interface Unregistration {
     id: string;
 
     /**
-     * The method / capability to unregister for.
+     * The method / method to unregister for.
      */
     method: string;
 }
@@ -35,7 +35,7 @@ export interface UnregistrationParams {
     // This should correctly be named `unregistrations`. However changing this
     // is a breaking change and needs to wait until we deliver a 4.x version
     // of the specification.
-    unregisterations: Unregistration[];
+    unregistrations: Unregistration[];
 }
 ```
 
@@ -43,7 +43,7 @@ An example JSON-RPC message to unregister the above registered `textDocument/wil
 
 ```json
 {
-    "method": "client/unregisterSubscribedMethod",
+    "method": "client/unregister_subscribed_method",
     "params": {
         "unregisterations": [
             {

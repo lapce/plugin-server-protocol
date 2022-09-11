@@ -21,8 +21,13 @@ _Request_:
 export interface StartLSPParams {
     serverUri: URI;
     languageID: String[];
+
     /**
-     * Options passed to the invoked LSP server
+     * args passed to the invoked LSP server
+    serverArgs: any;
+
+    /**
+     * Plugin options
      */
     Options: any;
     /**

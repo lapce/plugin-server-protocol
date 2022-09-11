@@ -39,6 +39,16 @@ general?: {
          * @since PSP 0.1.0
          */
         LSP ?: boolean;
+        /**
+         * The client can handle DAP server methods
+         * @since PSP 0.1.0
+         */
+        DAP ?: boolean;
+        /**
+         * The client can handle HttpRequest server methods
+         * @since PSP 0.1.0
+         */
+        HttpRequest ?: boolean;
     };
 }
 ```
@@ -73,7 +83,17 @@ interface ServerCapabilities {
          * @since PSP 0.1
          */
         LSP ?: boolean;
-    };
+        /**
+         * The Server is interested in starting DAP servers.
+         * @since PSP 0.1
+         */
+        DAP ?: boolean;
+        /**
+         * The client is interested in executin http requests.
+         * @since PSP 0.1.0
+         */
+        HttpRequests ?: boolean;
+};
 
     /**
      * The methods the server would like to subscribe to

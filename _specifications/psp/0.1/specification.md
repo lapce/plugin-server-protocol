@@ -23,13 +23,6 @@ This document describes the 0.1.x version of the plugin server protocol. An impl
 
 ## <a href="#pluginServerProtocol" name="pluginServerProtocol" class="anchor"> Plugin Server Protocol </a>
 
-### <a href="#capabilities" name= "capabilities" class="anchor"> Capabilities </a>
-
-//TODO: change this to mention based LSP capabilities, as well as new capabilities
-Not every language server can support all features defined by the protocol. PSP therefore provides ‘capabilities’. A capability groups a set of language features. A development tool and the language server announce their supported features using capabilities. As an example, a server announces that it can handle the `textDocument/hover` request, but it might not handle the `workspace/symbol` request. Similarly, a development tool announces its ability to provide `about to save` notifications before a document is saved, so that a server can compute textual edits to format the edited document before it is saved.
-
-The set of capabilities is exchanged between the client and server during the [initialize](#initialize) request.
-
 ### <a href="#lifeCycleMessages" name="lifeCycleMessages" class="anchor"> Server lifecycle </a>
 
 The current protocol specification defines that the lifecycle of a server is managed by the client (e.g. a tool like Lapce, VS Code or Emacs). It is up to the client to decide when to start (process-wise) and when to shutdown a server.
@@ -38,7 +31,6 @@ The current protocol specification defines that the lifecycle of a server is man
 
 {% include_relative client/registerSubscribedMethod.md %}
 {% include_relative client/unregisterSubscribedMethod.md %}
-
 
 <br>
 ### <a href="#textDocument_synchronization" name="textDocument_synchronization" class="anchor">Text Document Synchronization</a>
@@ -54,3 +46,5 @@ Plugin Feature provide the actual smarts in the Plugin server protocol. The are 
 * UI features, like drawing on the screen, or in a new window.
 
 {% include_relative plugin/lsp.md %}
+{% include_relative plugin/dap.md %}
+{% include_relative plugin/httpRequest.md %}
