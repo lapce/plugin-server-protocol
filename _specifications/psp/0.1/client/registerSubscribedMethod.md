@@ -6,7 +6,7 @@ Server must not register the same subscribed methods both statically through the
 
 _Request_:
 
-* method: 'methodclient/register_subscribed_method'
+* method: 'methodclient/registerSubscribedMethod'
 * params: `RegistrationParams`
 
 Where `RegistrationParams` are defined as follows:

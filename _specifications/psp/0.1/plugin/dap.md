@@ -12,7 +12,7 @@ _Server Capability_:
 
 
 _Request_:
-* method: `start_dap`
+* method: `general/startDap`
 * params: `StartDAPParams` defined as follows:
 
 <div class="anchorHolder"><a href="#StartDAPParams" name="StartDAPParams" class="linkableAnchor"></a></div>

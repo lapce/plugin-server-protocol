@@ -3,7 +3,7 @@
 The `methodclient/unregister_subscribed_method` request is sent from the server to the client to unregister a previously registered method.
 
 _Request_:
-* method: 'methodclient/unregister_subscribed_method'
+* method: 'methodclient/unregisterSubscribedMethod'
 * params: `UnregistrationParams`
 
 Where `UnregistrationParams` are defined as follows:

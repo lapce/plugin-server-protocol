@@ -12,7 +12,7 @@ _Server Capability_:
 
 
 _Request_:
-* method: `start_lsp`
+* method: `general/startLsp`
 * params: `StartLSPParams` defined as follows:
 
 <div class="anchorHolder"><a href="#StartLSPParams" name="StartLSPParams" class="linkableAnchor"></a></div>
