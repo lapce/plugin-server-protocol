@@ -3,7 +3,7 @@ title: Specification
 shortTitle: 0.1
 layout: specifications
 sectionid: specification-0-1
-toc: specification-3-17-toc
+toc: specification-0-1-toc
 fullTitle: Plugin Server Protocol Specification - 0.1
 index: 2
 redirect_from:
@@ -14,6 +14,7 @@ redirect_from:
 ---
 
 //TODO: fix the table of content
+//TODO: add new types to the LinkableTypes _data
 
 This document describes the 0.1.x version of the plugin server protocol. An implementation for rust of the 0.1.x version of the protocol can be found [here](https://github.com/lapce/lapce-rust).
 
@@ -31,11 +32,6 @@ The current protocol specification defines that the lifecycle of a server is man
 
 {% include_relative client/registerSubscribedMethod.md %}
 {% include_relative client/unregisterSubscribedMethod.md %}
-
-<br>
-### <a href="#textDocument_synchronization" name="textDocument_synchronization" class="anchor">Text Document Synchronization</a>
-
-<br>
 
 ### <a href="#languageFeatures" name="languageFeatures" class="anchor">Language Features</a>
 
