@@ -14,7 +14,7 @@ The Start DAP Server request is sent from the server to the client when a standa
 
 *Request*:
 
-* method: `general/startDap`
+* method: `psp/startDap`
 * params: `StartDAPParams` defined as follows:
 
 <div class="anchorHolder"><a href="#StartDAPParams" name="StartDAPParams" class="linkableAnchor"></a></div>

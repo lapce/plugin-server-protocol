@@ -14,7 +14,7 @@ The `HttpRequest` request is sent from the server to the client when it needs to
 
 *Request*:
 
-* method: `general/httpRequest`
+* method: `psp/httpRequest`
 * params: `HttpRequestParams` defined as follows:
 
 <div class="anchorHolder"><a href="#HttpRequestParams" name="HttpRequestParams" class="linkableAnchor"></a></div>
