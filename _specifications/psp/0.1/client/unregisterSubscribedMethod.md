@@ -1,20 +1,32 @@
-#### <a href="#client_unregisterSubscribedMethod" name="client_unregisterSubscribedMethod" class="anchor">Unregister Capability (:arrow_right_hook:)</a>
+#### <a href="#unregister_subscribed_method" name="unregister_subscribed_method" class="anchor">Unregister Method (:arrow_right_hook:)</a>
+
+> *Since version 0.1.0*
 
 The `methodclient/unregister_subscribed_method` request is sent from the server to the client to unregister a previously registered method.
 
-_Request_:
+*Client Capability*:
+
+* property name (optional): `psp.DynamicMethodRegistration`
+
+*Server Capability*:
+
+* property name (optional): `psp.DynamicMethodRegistration`
+
+*Request*:
+
 * method: 'methodclient/unregisterSubscribedMethod'
-* params: `UnregistrationParams`
+* params: `MethodUnregistrationParams`
 
-Where `UnregistrationParams` are defined as follows:
+Where `MethodUnregistrationParams` are defined as follows:
 
-<div class="anchorHolder"><a href="#unregistration" name="unregistration" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#methodUnregistrationParams" name="MethodUnregistrationParams" class="linkableAnchor"></a></div>
 
 ```typescript
 /**
  * General parameters to unregister a method.
  */
-export interface Unregistration {
+
+export interface MethodUnregistrationParams {
     /**
      * The id used to unregister the request or notification. Usually an id
      * provided during the register request.
@@ -22,38 +34,13 @@ export interface Unregistration {
     id: string;
 
     /**
-     * The method / method to unregister for.
+     * The method / methods to unregister for.
      */
-    method: string;
+    method: []string;
 }
 ```
 
-<div class="anchorHolder"><a href="#unregistrationParams" name="unregistrationParams" class="linkableAnchor"></a></div>
+*Response*:
 
-```typescript
-export interface UnregistrationParams {
-    // This should correctly be named `unregistrations`. However changing this
-    // is a breaking change and needs to wait until we deliver a 4.x version
-    // of the specification.
-    unregistrations: Unregistration[];
-}
-```
-
-An example JSON-RPC message to unregister the above registered `textDocument/willSaveWaitUntil` feature looks like this:
-
-```json
-{
-    "method": "client/unregister_subscribed_method",
-    "params": {
-        "unregisterations": [
-            {
-                "id": "79eee87c-c409-4664-8102-e03263673f6f",
-                "method": "textDocument/willSaveWaitUntil"
-            }
-        ]
-    }
-}
-```
-_Response_:
 * result: void.
 * error: code and message set in case an exception happens during the request.

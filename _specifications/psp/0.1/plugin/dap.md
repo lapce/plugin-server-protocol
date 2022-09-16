@@ -4,14 +4,16 @@
 
 The Start DAP Server request is sent from the server to the client when a standalone DAP server needs to be spawned.
 
-_Client Capability_:
-* property name (optional): `general.DAP`
+*Client Capability*:
 
-_Server Capability_:
-* property name (optional): `general.DAP`
+* property name (optional): `psp.DAP`
 
+*Server Capability*:
 
-_Request_:
+* property name (optional): `psp.DAP`
+
+*Request*:
+
 * method: `general/startDap`
 * params: `StartDAPParams` defined as follows:
 
@@ -37,6 +39,7 @@ export interface StartDAPParams {
 }
 ```
 
-_Response_:
+*Response*:
+
 * result: `null`
 * error: code and message set in case an exception happens during the declaration request.

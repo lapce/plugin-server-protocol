@@ -13,7 +13,6 @@ redirect_from:
   - specifications/specification-current/
 ---
 
-//TODO: fix the table of content
 //TODO: add new types to the LinkableTypes _data
 
 This document describes the 0.1.x version of the plugin server protocol. An implementation for rust of the 0.1.x version of the protocol can be found [here](https://github.com/lapce/lapce-rust).

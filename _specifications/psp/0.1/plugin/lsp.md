@@ -4,14 +4,16 @@
 
 The Start LSP Server request is sent from the server to the client when a standalone LSP server needs to be spawned.
 
-_Client Capability_:
-* property name (optional): `general.LSP`
+*Client Capability*:
 
-_Server Capability_:
-* property name (optional): `general.LSP`
+* property name (optional): `psp.LSP`
 
+*Server Capability*:
 
-_Request_:
+* property name (optional): `psp.LSP`
+
+*Request*:
+
 * method: `general/startLsp`
 * params: `StartLSPParams` defined as follows:
 
@@ -20,10 +22,11 @@ _Request_:
 ```typescript
 export interface StartLSPParams {
     serverUri: URI;
-    languageID: String[];
+    languageID: string[];
 
     /**
      * args passed to the invoked LSP server
+     */
     serverArgs: any;
 
     /**
@@ -37,6 +40,7 @@ export interface StartLSPParams {
 }
 ```
 
-_Response_:
+*Response*:
+
 * result: `null`
 * error: code and message set in case an exception happens during the declaration request.

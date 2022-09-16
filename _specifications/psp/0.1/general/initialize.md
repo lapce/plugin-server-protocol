@@ -23,17 +23,14 @@ interface InitializeParams extends WorkDoneProgressParams {
 
 ```typescript
 interface ClientCapabilities {
-    workspace?: {
-        fileOperations?: {
-            /**
-             * Whether the client supports dynamic registration for
-             * subscribed methods.
-             */
-            dynamicSubscribedRegistration?: boolean;
-        }
-    }
+    clientInfo ?: {
+        /**
+         * The client's PSP version handled
+        */
+        pspVersion ?: string;
+    };
 
-general?: {
+    psp ?: {
         /**
          * The client can handle LSP server methods
          * @since PSP 0.1.0
@@ -49,7 +46,21 @@ general?: {
          * @since PSP 0.1.0
          */
         HttpRequest ?: boolean;
-    };
+
+        /**
+         * The Client can do dynamic Method registration
+         * @since PSP 0.1.0
+         */
+        DynamicMethodRegistration ?: boolean;
+
+        /**
+         * The client can handle PSP plugins
+         * This allows servers to dynamically know whether the client
+         * is an lsp client or a psp client.
+         * @since PSP 0.1.0
+         */
+        HandlePsp ?: boolean;
+    }
 }
 ```
 
@@ -74,10 +85,15 @@ The server can signal the following capabilities:
 
 ```typescript
 interface ServerCapabilities {
-    /**
-     * General server capabilities
-     */
-    general?: {
+
+    serverInfo?: {
+        /**
+         * The server's PSP version handled
+        */
+        pspVersion ?: string;
+    };
+
+    psp ?: {
         /**
          * The Server is interested in starting LSP servers.
          * @since PSP 0.1
@@ -89,19 +105,25 @@ interface ServerCapabilities {
          */
         DAP ?: boolean;
         /**
-         * The client is interested in executin http requests.
+         * The Server is interested in executing http requests.
          * @since PSP 0.1.0
          */
         HttpRequests ?: boolean;
-};
 
-    /**
-     * The methods the server would like to subscribe to
-     * Defaults to all if empty.
-     * Can also be a MethodGroup.
-     * @since PSP 0.1
-     */
-    subscribedMethods ?: MethodGroup[]|String[];
+        /**
+         * The Server can do dynamic Method registration
+         * @since PSP 0.1.1
+         */
+        DynamicMethodRegistration ?: boolean;
+
+        /**
+         * The methods the server would like to subscribe to
+         * Defaults to all if empty.
+         * Can also be a MethodGroup.
+         * @since PSP 0.1
+         */
+        subscribedMethods ?: MethodGroup[]|String[];
+    }
 }
 ```
 

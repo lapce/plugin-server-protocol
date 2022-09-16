@@ -1,6 +1,6 @@
 - title: PSP
   url: /overviews/psp/overview
 - title: LSP
-  url: /overviews/lsp/overview
+  url: https://microsoft.github.io/language-server-protocol/overviews/lsp/overview
 - title: LSIF
-  url: /overviews/lsif/overview
+  url: https://microsoft.github.io/language-server-protocol/overviews/lsif/overview

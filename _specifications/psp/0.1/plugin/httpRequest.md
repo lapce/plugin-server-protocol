@@ -6,11 +6,11 @@ The `HttpRequest` request is sent from the server to the client when it needs to
 
 *Client Capability*:
 
-* property name (optional): `general.HttpRequest`
+* property name (optional): `psp.HttpRequest`
 
 *Server Capability*:
 
-* property name (optional): `general.HttpRequest`
+* property name (optional): `psp.HttpRequest`
 
 *Request*:
 
