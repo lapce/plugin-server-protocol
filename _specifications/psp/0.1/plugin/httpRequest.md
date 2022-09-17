@@ -17,7 +17,7 @@ The `HttpRequest` request is sent from the server to the client when it needs to
 * method: `psp/httpRequest`
 * params: `HttpRequestParams` defined as follows:
 
-<div class="anchorHolder"><a href="#HttpRequestParams" name="HttpRequestParams" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#httpRequestParams" name="HttpRequestParams" class="linkableAnchor"></a></div>
 
 ```typescript
 export interface HttpRequestParams {
@@ -28,7 +28,7 @@ export interface HttpRequestParams {
     // If "response", data is sent in the response of the request.
     output: URI|"response";
     // Header fields.
-    headers: String[];
+    headers: string[];
     // Follow redirects. Number is the number of max hops.
     redirects: boolean|Number;
     // Body contents.
@@ -43,14 +43,14 @@ export interface HttpRequestParams {
 
 where `HttpRequestResponse` defined as follows:
 
-<div class="anchorHolder"><a href="#HttpRequestParams" name="HttpRequestParams" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#httpRequestResponse" name="HttpRequestResponse" class="linkableAnchor"></a></div>
 
 ```typescript
 export interface HttpRequestResponse {
     // Status code of the response.
     statusCode: int,
     // List of all headers of the response.
-    headers: String[],
+    headers: string[],
     // Body of the response, or URI of the downloaded data.
     body: Uint8Array,
 }

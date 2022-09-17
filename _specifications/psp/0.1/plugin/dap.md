@@ -22,7 +22,7 @@ The Start DAP Server request is sent from the server to the client when a standa
 ```typescript
 export interface StartDAPParams {
     serverUri: URI;
-    languageID: String[];
+    languageID: string[];
 
     /**
      * args passed to the invoked DAP server

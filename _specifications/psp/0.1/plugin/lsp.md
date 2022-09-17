@@ -17,7 +17,7 @@ The Start LSP Server request is sent from the server to the client when a standa
 * method: `psp/startLsp`
 * params: `StartLSPParams` defined as follows:
 
-<div class="anchorHolder"><a href="#StartLSPParams" name="StartLSPParams" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#startLSPParams" name="StartLSPParams" class="linkableAnchor"></a></div>
 
 ```typescript
 export interface StartLSPParams {
