@@ -1,4 +1,4 @@
-#### <a href="#start_dap" name="start_dap" class="anchor">Start DAP Server Request</a>
+#### <a href="#startDap" name="startDap" class="anchor">Start DAP Server Request</a>
 
 > *Since version 0.1.0*
 
@@ -36,6 +36,41 @@ export interface StartDAPParams {
      * Leave the resolving of the binary path to be handled by the client
      */
     resolvePath: boolean;
+}
+```
+
+*Response*:
+
+* result: `null`
+* error: code and message set in case an exception happens during the declaration request.
+
+#### <a href="#stopDap" name="stopDap" class="anchor">Stop DAP Server Request</a>
+
+> *Since version 0.1.0*
+
+The Stop DAP Server request is sent from the server to the client when a standalone DAP server needs to be spawned.
+
+*Client Capability*:
+
+* property name (optional): `psp.DAP`
+
+*Server Capability*:
+
+* property name (optional): `psp.DAP`
+
+*Request*:
+
+* method: `psp/stopDap`
+* params: `StopDAPParams` defined as follows:
+
+<div class="anchorHolder"><a href="#stopDAPParams" name="StopDAPParams" class="linkableAnchor"></a></div>
+
+```typescript
+export interface StopDAPParams {
+    /**
+     *  URI of the binary DAP server as specified in the startDAP request.
+    */
+    serverUri: URI;
 }
 ```
 

@@ -1,4 +1,4 @@
-#### <a href="#register_command" name="register_command" class="anchor">Register new command</a>
+#### <a href="#register_command" name="register_command" class="anchor">Register new command Request</a>
 
 > *Since version 0.1.0*
 
@@ -21,7 +21,9 @@ The Register Command request is sent from the server to the client when it wants
 
 ```ts
 export interface RegisterCommandParams {
-  // Commands to register.
+  /**
+     * Commands to register.
+    */
   commands: RegisterCommand[];
 }
 ```
@@ -32,9 +34,13 @@ where `RegisterCommand` defined as follows:
 
 ```ts
 export interface RegisterCommand {
-    // Id of the command.
+    /**
+     * Id of the command.
+    */
     label: string;
-    // Description of the command.
+    /**
+     * Description of the command.
+    */
     description: string;
 }
 ```
@@ -44,47 +50,184 @@ export interface RegisterCommand {
 * result `null`
 * error: code and message set in case an exception happens during the declaration request.
 
-a server can ask for user inputs based on the command invoked
+#### <a href="#trigger_command" name="trigger_command" class="anchor">Trigger command Notification</a>
+
+When a user Executes a command, a notification is sent from the client to the server:
+
+*Client capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Server capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Notification*:
+
+* method: `psp/triggerCommand`
+* params: `TriggerCommandParams`defined as follows:
 
 ```ts
-export interface AskInputParams {
-    // Id of the command related to this input.
+export interface TriggerCommandParams {
+    /**
+     * The name of the triggered command.
+    */
+    command: string;
+}
+```
+
+#### <a href="#register_command" name="register_command" class="anchor"> Ask for inputs / choices requests</a>
+
+a server can then ask for user inputs based on the command invoked. It can use two type of input request:
+
+* `AskInput`: The user enters an arbitratry string
+* `AskChoice`: The user selects one or more choices from a list
+
+*Client capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Server capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Notification*:
+
+* method: `psp/askInput`
+* params: `askInput`defined as follows:
+
+```ts
+export interface AskInput {
+    /**
+     * Id of the command related to this input.
+    */
     id: integer;
-    // Title of the input.
+    /**
+     * Title of the input.
+    */
     title: string;
-    // Placeholder to be shown inside the input field.
+    /**
+     * Placeholder to be shown inside the input field.
+    */
     placeholder?: string;
-    // Hints about the way to fill this data.
+    /**
+     * Hints about the way to fill this data.
+    */
     hint?: string|URI;
 }
+```
 
-export interface AskChoiceParams {
-    // Id of the command related to this input.
+*Response*:
+
+* result `AskInputResponse`
+* error: code and message set in case an exception happens during the declaration request.
+
+where `AskInputResponse` defined as follows:
+
+```ts
+export interface AskInputResponse {
+    /**
+     * Id of the command related to this input.
+    */
     id: integer;
-    // Title of the input.
-    title: string;
-    // Choices the user can choose.
-    choices: string[];
-    // Minimum number of choices the user can choose
-    // Defaults to one
-    minChoices?: integer;
-    // Maximum number of choices the user can choose
-    // Defaults to one
-    // On unlimited number of choice, value is zero
-    maxChoices?: integer;
-    // Default selected choice index.
-    defaultCHoices ?: integer[]
-    // Hints about the way to fill this data.
-    hint?: string|URI;
-}
-
-export interface AskForInputResponse {
-    // Id of the command related to this input.
-    id: Number;
-    // Response of the user
+    /**
+     * Response of the user
+    */
     response: string[];
 }
 ```
 
-where `` defined as follows:
-<div class="anchorHolder"><a href="#registerCommandParams" name="RegisterCommandParams" class="linkableAnchor"></a></div>
+*Client capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Server capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Notification*:
+
+* method: `psp/askChoice`
+* params: `askInput`defined as follows:
+
+```ts
+export interface AskChoice {
+    /**
+     * Id of the command related to this input.
+    */
+    id: integer;
+    /**
+     * Title of the input.
+    */
+    title: string;
+    /**
+     * Choices the user can choose.
+    */
+    choices: Choice[];
+    /**
+     * Minimum number of choices the user can choose
+    */
+    /**
+     * Defaults to one
+    */
+    minChoices?: integer;
+    /**
+     * Maximum number of choices the user can choose
+    */
+    /**
+     * Defaults to one
+    */
+    /**
+     * On unlimited number of choice, value is zero
+    */
+    maxChoices?: integer;
+    /**
+     * Default selected choice index.
+    */
+    defaultCHoices ?: integer[]
+    /**
+     * Hints about the way to fill this data.
+    */
+    hint?: string|URI;
+}
+```
+
+where `Choice` defined as follows:
+
+```ts
+
+export interface Choice {
+    /**
+     *  The text that should be displayed for the choice
+    */
+    text: string,
+    /**
+     *  The icon that should be displayed for the choice  
+    */
+    icon?: Uri,
+    /**
+     *  Hint which gives a small amount of extra information about the choice
+    */
+    hint?: string,
+}
+```
+
+*Response*:
+
+* result `AskChoiceResponse`
+* error: code and message set in case an exception happens during the declaration request.
+
+where `AskChoiceResponse` defined as follows:
+
+```ts
+export interface AskChoiceResponse {
+    /**
+     *  Id of the command related to this input.
+    */
+    id: integer;
+    /**
+     *  Response of the user
+    */
+    response: string[];
+}
+```
