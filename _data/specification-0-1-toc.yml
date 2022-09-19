@@ -20,11 +20,23 @@
     - title: Overview
       anchor: languageFeatures
     - title: Start Lsp Server
-      anchor: start_lsp
+      anchor: startLsp
+    - title: Stop Lsp Server
+      anchor: stopLsp
     - title: Start DAP Server
-      anchor: start_dap
+      anchor: startDap
+    - title: Stop DAP Server
+      anchor: stopDap
     - title: Make an HTTP Request
-      anchor: http_request
+      anchor: httpRequest
+    - title: Register new Command
+      anchor: registerCommand
+    - title: Trigger Command
+      anchor: triggerCommand
+    - title: Ask for user Inputs / choices
+      anchor: askInputChoice
+    - title: Unregister command
+      anchor: unregisterCommand
   - title: Workspace Features
     anchor: workspaceFeatures
   - title: Window Features

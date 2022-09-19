@@ -1,4 +1,4 @@
-#### <a href="#http_request" name="http_request" class="anchor">Make an Http Request</a>
+#### <a href="#httpRequest" name="httpRequest" class="anchor">Make an Http Request</a>
 
 > *Since version 0.1.0*
 

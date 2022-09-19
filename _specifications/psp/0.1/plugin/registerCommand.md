@@ -1,4 +1,4 @@
-#### <a href="#register_command" name="register_command" class="anchor">Register new command Request</a>
+#### <a href="#registerCommand" name="registerCommand" class="anchor">Register new command Request</a>
 
 > *Since version 0.1.0*
 
@@ -50,7 +50,7 @@ export interface RegisterCommand {
 * result `null`
 * error: code and message set in case an exception happens during the declaration request.
 
-#### <a href="#trigger_command" name="trigger_command" class="anchor">Trigger command Notification</a>
+#### <a href="#triggerCommand" name="triggerCommand" class="anchor">Trigger command Notification</a>
 
 When a user Executes a command, a notification is sent from the client to the server:
 
@@ -67,6 +67,8 @@ When a user Executes a command, a notification is sent from the client to the se
 * method: `psp/triggerCommand`
 * params: `TriggerCommandParams`defined as follows:
 
+<div class="anchorHolder"><a href="#triggerCommand" name="TriggerCommand" class="linkableAnchor"></a></div>
+
 ```ts
 export interface TriggerCommandParams {
     /**
@@ -76,7 +78,7 @@ export interface TriggerCommandParams {
 }
 ```
 
-#### <a href="#register_command" name="register_command" class="anchor"> Ask for inputs / choices requests</a>
+#### <a href="#askInputChoice" name="AskInputChoice" class="anchor"> Ask for inputs / choices requests</a>
 
 a server can then ask for user inputs based on the command invoked. It can use two type of input request:
 
@@ -95,6 +97,8 @@ a server can then ask for user inputs based on the command invoked. It can use t
 
 * method: `psp/askInput`
 * params: `askInput`defined as follows:
+
+<div class="anchorHolder"><a href="#askInput" name="AskInput" class="linkableAnchor"></a></div>
 
 ```ts
 export interface AskInput {
@@ -124,6 +128,8 @@ export interface AskInput {
 
 where `AskInputResponse` defined as follows:
 
+<div class="anchorHolder"><a href="#askInputResponse" name="AskInputResponse" class="linkableAnchor"></a></div>
+
 ```ts
 export interface AskInputResponse {
     /**
@@ -150,6 +156,8 @@ export interface AskInputResponse {
 * method: `psp/askChoice`
 * params: `askInput`defined as follows:
 
+<div class="anchorHolder"><a href="#askChoice" name="AskChoice" class="linkableAnchor"></a></div>
+
 ```ts
 export interface AskChoice {
     /**
@@ -166,18 +174,12 @@ export interface AskChoice {
     choices: Choice[];
     /**
      * Minimum number of choices the user can choose
-    */
-    /**
      * Defaults to one
     */
     minChoices?: integer;
     /**
      * Maximum number of choices the user can choose
-    */
-    /**
      * Defaults to one
-    */
-    /**
      * On unlimited number of choice, value is zero
     */
     maxChoices?: integer;
@@ -193,6 +195,8 @@ export interface AskChoice {
 ```
 
 where `Choice` defined as follows:
+
+<div class="anchorHolder"><a href="#choice" name="Choice" class="linkableAnchor"></a></div>
 
 ```ts
 
@@ -219,6 +223,8 @@ export interface Choice {
 
 where `AskChoiceResponse` defined as follows:
 
+<div class="anchorHolder"><a href="#askChoiceResponse" name="AskChoiceResponse" class="linkableAnchor"></a></div>
+
 ```ts
 export interface AskChoiceResponse {
     /**
@@ -231,3 +237,38 @@ export interface AskChoiceResponse {
     response: string[];
 }
 ```
+
+#### <a href="#unregisterCommand" name="unregisterCommand" class="anchor">Unregister command Request</a>
+
+> *Since version 0.1.0*
+
+The Unregister Command request is sent from the server to the client when it wants to delete an previously created command.
+
+*Client capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Server capability*:
+
+* property name (optional): `psp.RegisterCommand`
+
+*Request*:
+
+* method: `psp/unregisterCommand`
+* params: `RegisterCommandParams`defined as follows:
+
+<div class="anchorHolder"><a href="#unregisterCommandParams" name="UnergisterCommandParams" class="linkableAnchor"></a></div>
+
+```ts
+export interface UnregisterCommandParams {
+  /**
+     * Commands to unregister.
+    */
+  commands: RegisterCommand[];
+}
+```
+
+*Response*:
+
+* result `null`
+* error: code and message set in case an exception happens during the declaration request.
