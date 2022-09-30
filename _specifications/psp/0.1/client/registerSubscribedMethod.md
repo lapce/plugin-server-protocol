@@ -2,7 +2,7 @@
 
 > *Since version 0.1.0*
 
-The `methodclient/register_subscribed_method` request is sent from the server to the client to register for a new subscribed method on the client side. Not all clients need to support dynamic method registration. A client and server opts in via the `DynamicMethodRegistration` property on the specific client capabilities.
+The `methodclient/registerSubscribedMethod` request is sent from the server to the client to register for a new subscribed method on the client side. Not all clients need to support dynamic method registration. A client and server opts in via the `DynamicMethodRegistration` property on the specific client capabilities.
 
 Server must not register the same subscribed methods both statically through the initialize result and dynamically. If a server wants to support both static and dynamic registration it needs to check the client capability in the initialize request and only register the capability statically if the client doesn't support dynamic registration for that capability.
 
@@ -35,10 +35,12 @@ export interface MethodRegistrationParams {
     id: string;
 
     /**
-     * The method / capability to register for.
+     * The methods to register for.
+     * All the LSP and PSP methods can be used as methods
+     * Note that Registration is an LSP type.
      * empty array defaults to no method registered
      */
-    method: string[];
+    methods: Registration[];
 }
 ```
 

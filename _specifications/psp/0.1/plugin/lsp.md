@@ -22,23 +22,24 @@ The Start LSP Server request is sent from the server to the client when a standa
 ```typescript
 export interface StartLSPParams {
     /**
-     *  URI of the binary LSP server to run.
+     * URI of the binary LSP server to run.
+     * The URI is a local file.
     */
     serverUri: URI;
     /**
      * Selection of all file types where the lsp will be in use.
     */
-    languageID: documentSelector;
+    languageId: documentSelector;
 
     /**
      * Args passed to the invoked LSP server
-     */
-    serverArgs: any;
+    */
+    serverArgs: string[];
 
     /**
      * Plugin options
-     */
-    Options: any;
+    */
+    options: LSPAny;
 }
 ```
 

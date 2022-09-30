@@ -1,6 +1,6 @@
 #### <a href="#initialize" name="initialize" class="anchor">Initialize Request (:leftwards_arrow_with_hook:)</a>
 
-The initialize request Follows the same rule as the initialize request from LSP. Additions to this request are the new capabilities, and the subscribed events: A server can choose to dynamically or at startup subscribe to PSP/LSP events. The client will only send the subscribed events to the server.
+The initialize request follows the same rules as the initialize request from the [LSP specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#initialize). Additions to this request are the new capabilities, and the subscribed events: A server can choose to dynamically or at startup subscribe to PSP/LSP events. The client will only send the subscribed events to the server.
 
 _Request_:
 
@@ -10,11 +10,10 @@ _Request_:
 <div class="anchorHolder"><a href="#initializeParams" name="initializeParams" class="linkableAnchor"></a></div>
 
 ```typescript
-interface InitializeParams extends WorkDoneProgressParams {
     /**
      * LSP fields are ignored, unless they are needed to represent PSP fields.
      */
-
+interface InitializeParams extends WorkDoneProgressParams {
     capabilities: ClientCapabilities;
 }
 ```
@@ -23,43 +22,39 @@ interface InitializeParams extends WorkDoneProgressParams {
 
 ```typescript
 interface ClientCapabilities {
-    clientInfo ?: {
+    psp?: {
         /**
-         * The client's PSP version handled
-        */
-        pspVersion ?: string;
-    };
-
-    psp ?: {
-        /**
-         * The client can handle LSP server methods
-         * @since PSP 0.1.0
+         * The client can start LSP servers on behalf of the server
+         * @since 0.1.0
          */
-        LSP ?: boolean;
+        lsp?: boolean;
         /**
-         * The client can handle DAP server methods
-         * @since PSP 0.1.0
+         * The client can start DAP servers on behalf of the server
+         * @since 0.1.0
          */
-        DAP ?: boolean;
+        dap?: boolean;
         /**
          * The client can handle HttpRequest server methods
-         * @since PSP 0.1.0
+         * @since 0.1.0
          */
-        HttpRequest ?: boolean;
+        httpRequests?: boolean;
 
         /**
          * The Client can do dynamic Method registration
-         * @since PSP 0.1.0
+         * @since 0.1.0
          */
-        DynamicMethodRegistration ?: boolean;
+        dynamicMethodRegistration?: boolean;
 
         /**
          * The client can handle PSP plugins
          * This allows servers to dynamically know whether the client
          * is an lsp client or a psp client.
-         * @since PSP 0.1.0
+         * A use case would be:
+         * - server knows that PSP is being used and uses PSP methods
+         * - server knows that PSP is not being used and falls back to LSP methods only
+         * @since 0.1.0
          */
-        HandlePsp ?: boolean;
+        handlePsp?: boolean;
     }
 }
 ```
@@ -85,44 +80,39 @@ The server can signal the following capabilities:
 
 ```typescript
 interface ServerCapabilities {
-
-    serverInfo?: {
-        /**
-         * The server's PSP version handled
-        */
-        pspVersion ?: string;
-    };
-
-    psp ?: {
+    psp?: {
         /**
          * The Server is interested in starting LSP servers.
-         * @since PSP 0.1
+         * @since 0.1.0
+         * default: false
          */
-        LSP ?: boolean;
+        dap?: boolean;
         /**
          * The Server is interested in starting DAP servers.
-         * @since PSP 0.1
+         * @since 0.1.0
+         * default: false
          */
-        DAP ?: boolean;
+        dap?: boolean;
         /**
          * The Server is interested in executing http requests.
-         * @since PSP 0.1.0
+         * @since 0.1.0
+         * default: false
          */
-        HttpRequests ?: boolean;
+        httpRequests?: boolean;
 
         /**
          * The Server can do dynamic Method registration
-         * @since PSP 0.1.1
+         * @since 0.1.0
          */
-        DynamicMethodRegistration ?: boolean;
+        hynamicMethodRegistration?: boolean;
 
         /**
          * The methods the server would like to subscribe to
          * Defaults to all if empty.
          * Can also be a MethodGroup.
-         * @since PSP 0.1
+         * @since 0.1.0
          */
-        subscribedMethods ?: MethodGroup[]|String[];
+        subscribedMethods?: MethodGroup[] | string[];
     }
 }
 ```
@@ -136,16 +126,16 @@ Groups can be used to represent a set of multiple methods:
 ```typescript
 
 /**
- * @since PSP 0.1
+ * @since 0.1.0
  */
 export enum MethodGroup {
     // All LSP methods
-    LSP = 'lsp',
+    lsp = 'lsp',
     // All PSP methods, excluding LSP
-    PSP = 'psp',
+    lsp = 'psp',
     // All methods, PSP and LSP
-    ALL = 'all',
+    all = 'all',
     // No methods
-    NONE = 'none',
+    none = 'none',
 }
 ```

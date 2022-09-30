@@ -14,14 +14,14 @@
       anchor: register_subscribed_method
     - title: Unregister Subscribed Method
       anchor: unregister_subscribed_method
-  - title: Language Features
-    anchor: languageFeatures
+  - title: Plugin Features
+    anchor: pluginFeatures
     children:
     - title: Overview
-      anchor: languageFeatures
-    - title: Start Lsp Server
+      anchor: pluginFeatures
+    - title: Start LSP Server
       anchor: startLsp
-    - title: Stop Lsp Server
+    - title: Stop LSP Server
       anchor: stopLsp
     - title: Start DAP Server
       anchor: startDap

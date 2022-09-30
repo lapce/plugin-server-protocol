@@ -78,7 +78,7 @@ export interface TriggerCommandParams {
 }
 ```
 
-#### <a href="#askInputChoice" name="AskInputChoice" class="anchor"> Ask for inputs / choices requests</a>
+#### <a href="#askInputChoice" name="askInputChoice" class="anchor"> Ask for inputs / choices requests</a>
 
 a server can then ask for user inputs based on the command invoked. It can use two type of input request:
 
@@ -98,7 +98,7 @@ a server can then ask for user inputs based on the command invoked. It can use t
 * method: `psp/askInput`
 * params: `askInput`defined as follows:
 
-<div class="anchorHolder"><a href="#askInput" name="AskInput" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#askInputChoice" name="AskInput" class="linkableAnchor"></a></div>
 
 ```ts
 export interface AskInput {
@@ -257,7 +257,7 @@ The Unregister Command request is sent from the server to the client when it wan
 * method: `psp/unregisterCommand`
 * params: `RegisterCommandParams`defined as follows:
 
-<div class="anchorHolder"><a href="#unregisterCommandParams" name="UnergisterCommandParams" class="linkableAnchor"></a></div>
+<div class="anchorHolder"><a href="#unregisterCommandParams" name="UnrgisterCommandParams" class="linkableAnchor"></a></div>
 
 ```ts
 export interface UnregisterCommandParams {

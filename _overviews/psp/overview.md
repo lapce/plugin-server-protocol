@@ -13,21 +13,20 @@ If you are not aware of the Language Server Protocol, please read [this overview
 <br>
 <br>
 
-The idea behind the <i>Plugin Server Protocol (PSP)</i> is to standardize the protocol for how plugins an server communicate, so a single <i>Plugin Server</i> can be re-used in multiple development tools, and tools can support plugins with minimal effort.
+The idea behind the *Plugin Server Protocol (PSP)* is to standardize the protocol between editors (clients) and plugins (servers); so that a single Plugin Server can be re-used in multiple development tools, and tools can support plugins with minimal effort.
 
 PSP is a win for both plugin providers and tools vendors!
 
 ## How it works
 
-PSP uses the same base as LSP, only with some tweaks and added methods. The JSON-RPC communication is still the same, even some requests are reused. In short, PSP works as a superset of LSP. The most notable differences are:
+The Plugin Server Protocol serves as an extension of the existing Language Server Protocol, which standardized how language tooling communicated with editors. Much of the communication and methods are inherited from it, though with some changes:
 
-- New fields in the initialize handshake for events. A plugin will only receive subscribed events.
-- Some LSP Methods are disabled. This is because some of these requests only make sense in a Language Server context (TODO: add one example of such requests)
-- New Methods are added, to reflect all type of actions needed for a plugin (modifying settings, adding palette commands, drawing on screen,etc.)
+- New fields in the initialize handshake to subscribe to events that the plugin wishes to receive. A plugin will receive only events it has subscribed to.
+- New methods are added for functionality expected by plugins. (Adding commands to the palette, settings information, starting LSP servers,etc.)
 
 ## Capabilities
 
-PSP uses the same kind of capabilities that LSP defined, and adds more.
+The PSP inherits the same capabilities defined in the [LSP specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/), and adds more that are specific to the protocol.
 
 ## Libraries (SDKs) for PSP providers and consumers
 

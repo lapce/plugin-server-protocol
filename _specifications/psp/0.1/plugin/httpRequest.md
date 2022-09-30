@@ -21,18 +21,36 @@ The `HttpRequest` request is sent from the server to the client when it needs to
 
 ```typescript
 export interface HttpRequestParams {
-     method: "GET"|"POST"|"PUT"|"DELETE";
-    // The URL to send the request to.
+    /**
+     * The HTTP method
+    */
+    method: "GET"|"POST"|"PUT"|"DELETE";
+    /**
+     * The URL to send the request to.
+    */
     url: URI;
-    // The output file where response data should be written.
-    // If "response", data is sent in the response of the request.
-    output: URI|"response";
-    // Header fields.
+    /**
+     * The output file where response data should be written.
+     * If "response", data is sent in the response of the request.
+    */
+    output: URI | "response";
+    /**
+     * List of all headers of the response.
+     * Strings should be of format NAME=VALUE where NAME is the header name, and VALUE is the header value
+     * Headers disallowed: Content-Length
+    */
     headers: string[];
-    // Follow redirects. Number is the number of max hops.
-    redirects: boolean|Number;
-    // Body contents.
-    body: Uint8Array;
+    /**
+     * Follow redirects.
+     * Integer is the number of max hops.
+     * True allows unlimited hops
+     * False allows no hops
+    */
+    redirects: boolean | integer;
+    /**
+     * Body contents.
+    */
+    body: string | Uint8Array;
 }
 ```
 
@@ -47,11 +65,18 @@ where `HttpRequestResponse` defined as follows:
 
 ```typescript
 export interface HttpRequestResponse {
-    // Status code of the response.
-    statusCode: int,
-    // List of all headers of the response.
-    headers: string[],
-    // Body of the response, or URI of the downloaded data.
-    body: Uint8Array,
+    /**
+     * Status code of the response.
+    */
+    statusCode: integer;
+    /**
+     * List of all headers of the response.
+     * Strings should be of format NAME=VALUE where NAME is the header name, and VALUE is the header value
+    */
+    headers: string[];
+    /**
+     * Body of the response, or URI of the downloaded data.
+    */
+    body: string | Uint8Array;
 }
 ```

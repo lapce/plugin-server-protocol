@@ -21,21 +21,25 @@ The Start DAP Server request is sent from the server to the client when a standa
 
 ```typescript
 export interface StartDAPParams {
+    /**
+     * URI of the binary LSP server to run.
+     * The URI is a local file.
+    */
     serverUri: URI;
-    languageID: string[];
+    /**
+     * Selection of all file types where the lsp will be in use.
+    */
+    languageId: documentSelector;
 
     /**
-     * args passed to the invoked DAP server
-    serverArgs: any;
+     * Args passed to the invoked LSP server
+    */
+    serverArgs: string[];
 
     /**
      * Plugin options
-     */
-    Options: any;
-    /**
-     * Leave the resolving of the binary path to be handled by the client
-     */
-    resolvePath: boolean;
+    */
+    options: LSPAny;
 }
 ```
 

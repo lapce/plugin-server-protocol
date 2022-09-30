@@ -13,13 +13,11 @@ redirect_from:
   - specifications/specification-current/
 ---
 
-//TODO: add new types to the LinkableTypes _data
-
-This document describes the 0.1.x version of the plugin server protocol. An implementation for rust of the 0.1.x version of the protocol can be found [here](https://github.com/lapce/lapce-rust).
+This document describes the 0.1.x version of the plugin server protocol. An implementation for Rust of the 0.1.x version of the protocol can be found [here](https://github.com/lapce/lapce-rust).
 
 **Note:** edits to this specification can be made via a pull request against this markdown [document](https://github.com/lapce/plugin-server-protocol/blob/gh-pages/_specifications/psp/0.1/specification.md).
 
-**Please do note that while PSP is a superset of LSP, its specification will not be found here, but rather [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)
+**Please do note that while PSP is a superset of LSP, its specification will not be found here, but rather [here](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/)**
 
 ## <a href="#pluginServerProtocol" name="pluginServerProtocol" class="anchor"> Plugin Server Protocol </a>
 
@@ -32,9 +30,9 @@ The current protocol specification defines that the lifecycle of a server is man
 {% include_relative client/registerSubscribedMethod.md %}
 {% include_relative client/unregisterSubscribedMethod.md %}
 
-### <a href="#languageFeatures" name="languageFeatures" class="anchor">Language Features</a>
+### <a href="#pluginFeatures" name="pluginFeatures" class="anchor">Plugin Features</a>
 
-Plugin Feature provide the actual smarts in the Plugin server protocol. The are usually executed on a [text document, position] tuple. The main language feature categories are:
+Plugin Features provide much of the behavior in the Plugin Sever Protocol. The main language feature categories are:
 
 * LSP features (steming from LSP), and some methods for LSP handling
 * Settings features, like adding new settings or registering commands
@@ -43,3 +41,4 @@ Plugin Feature provide the actual smarts in the Plugin server protocol. The are 
 {% include_relative plugin/lsp.md %}
 {% include_relative plugin/dap.md %}
 {% include_relative plugin/httpRequest.md %}
+{% include_relative plugin/registerCommand.md %}
