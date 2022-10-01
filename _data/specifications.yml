@@ -7,13 +7,7 @@
   anchor: lsp
   children:
     - title: 3.17 (Current)
-      url: /specifications/lsp/3.17/specification
+      url: https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/
     - title: 3.16 (Previous)
-      url: /specifications/specification-3-16
-- title: LSIF
-  anchor: lsif
-  children:
-    - title: 0.6.0 (Current)
-      url: /specifications/lsif/0.6.0/specification
-    - title: 0.5.0 (Previous)
-      url: /specifications/lsif/0.5.0/specification
+      url: https://microsoft.github.io/language-server-protocol/specifications/specification-3-16/
+ 
