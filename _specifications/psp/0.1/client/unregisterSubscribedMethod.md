@@ -6,11 +6,11 @@ The `methodclient/unregister_subscribed_method` request is sent from the server 
 
 *Client Capability*:
 
-* property name (optional): `psp.DynamicMethodRegistration`
+* property name (optional): `psp.dynamicMethodRegistration`
 
-*Server Capability*:
+*[Server] Capability*:
 
-* property name (optional): `psp.DynamicMethodRegistration`
+* property name (optional): `psp.dynamicMethodRegistration`
 
 *Request*:
 
@@ -30,13 +30,14 @@ export interface MethodUnregistrationParams {
     /**
      * The id used to unregister the request or notification. Usually an id
      * provided during the register request.
+     * An id can be shared across multiple registered methods
      */
     id: string;
 
     /**
      * The method / methods to unregister for.
      */
-    method: []string;
+    method: string[];
 }
 ```
 

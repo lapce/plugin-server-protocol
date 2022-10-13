@@ -15,7 +15,7 @@ If you are not aware of the Language Server Protocol, please read [this overview
 
 The idea behind the *Plugin Server Protocol (PSP)* is to standardize the protocol between editors (clients) and plugins (servers); so that a single Plugin Server can be re-used in multiple development tools, and tools can support plugins with minimal effort.
 
-PSP is a win for both plugin providers and tools vendors!
+PSP is a win for both plugin providers and tool vendors!
 
 ## How it works
 
@@ -32,4 +32,4 @@ The PSP inherits the same capabilities defined in the [LSP specification](https:
 
 To simplify the implementation of language servers and clients, there are libraries or SDKs:
 
-//TODO: link PSP server and client sdks (we mostly won't provide client sdk as it would need decoupling of Lapce's proxy inner workings, but a client sdk definitely needs to be a thing)
+<!-- //TODO: link PSP server and client sdks (we mostly won't provide client sdk as it would need decoupling of Lapce's proxy inner  workings, but a client sdk definitely needs to be a thing) -->

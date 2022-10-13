@@ -6,11 +6,11 @@ The Start LSP Server request is sent from the server to the client when a standa
 
 *Client Capability*:
 
-* property name (optional): `psp.LSP`
+* property name (optional): `psp.lsp`
 
 *Server Capability*:
 
-* property name (optional): `psp.LSP`
+* property name (optional): `psp.lsp`
 
 *Request*:
 
@@ -27,9 +27,9 @@ export interface StartLSPParams {
     */
     serverUri: URI;
     /**
-     * Selection of all file types where the lsp will be in use.
+     * Selection of all file types that the lsp will receive events about
     */
-    languageId: documentSelector;
+    documentSelector: DocumentSelector;
 
     /**
      * Args passed to the invoked LSP server
@@ -56,11 +56,11 @@ The Stop LSP Server request is sent from the server to the client when a standal
 
 *Client Capability*:
 
-* property name (optional): `psp.LSP`
+* property name (optional): `psp.lsp`
 
 *Server Capability*:
 
-* property name (optional): `psp.LSP`
+* property name (optional): `psp.lsp`
 
 *Request*:
 

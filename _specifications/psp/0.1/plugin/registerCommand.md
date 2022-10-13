@@ -6,11 +6,11 @@ The Register Command request is sent from the server to the client when it wants
 
 *Client capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Server capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Request*:
 
@@ -56,11 +56,11 @@ When a user Executes a command, a notification is sent from the client to the se
 
 *Client capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Server capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Notification*:
 
@@ -87,11 +87,11 @@ a server can then ask for user inputs based on the command invoked. It can use t
 
 *Client capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Server capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Notification*:
 
@@ -117,7 +117,7 @@ export interface AskInput {
     /**
      * Hints about the way to fill this data.
     */
-    hint?: string|URI;
+    hint?: string | URI;
 }
 ```
 
@@ -145,11 +145,11 @@ export interface AskInputResponse {
 
 *Client capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Server capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Notification*:
 
@@ -180,13 +180,13 @@ export interface AskChoice {
     /**
      * Maximum number of choices the user can choose
      * Defaults to one
-     * On unlimited number of choice, value is zero
+     * For unlimited number of choice, set to zero
     */
     maxChoices?: integer;
     /**
-     * Default selected choice index.
+     * Default selected choices indices.
     */
-    defaultCHoices ?: integer[]
+    defaultChoices?: integer[]
     /**
      * Hints about the way to fill this data.
     */
@@ -199,14 +199,14 @@ where `Choice` defined as follows:
 <div class="anchorHolder"><a href="#choice" name="Choice" class="linkableAnchor"></a></div>
 
 ```ts
-
 export interface Choice {
     /**
      *  The text that should be displayed for the choice
     */
     text: string,
     /**
-     *  The icon that should be displayed for the choice  
+     *  The icon that should be displayed for the choice
+     *  The icon is a local only image.
     */
     icon?: Uri,
     /**
@@ -233,8 +233,9 @@ export interface AskChoiceResponse {
     id: integer;
     /**
      *  Response of the user
+     *  This is a list of indices of choice chosen
     */
-    response: string[];
+    response: integer[];
 }
 ```
 
@@ -246,11 +247,11 @@ The Unregister Command request is sent from the server to the client when it wan
 
 *Client capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Server capability*:
 
-* property name (optional): `psp.RegisterCommand`
+* property name (optional): `psp.registerCommand`
 
 *Request*:
 

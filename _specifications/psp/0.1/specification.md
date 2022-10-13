@@ -34,7 +34,7 @@ The current protocol specification defines that the lifecycle of a server is man
 
 Plugin Features provide much of the behavior in the Plugin Sever Protocol. The main language feature categories are:
 
-* LSP features (steming from LSP), and some methods for LSP handling
+* LSP features (stemming from LSP), and some methods for LSP handling
 * Settings features, like adding new settings or registering commands
 * UI features, like drawing on the screen, or in a new window.
 

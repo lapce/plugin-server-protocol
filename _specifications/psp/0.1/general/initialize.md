@@ -11,7 +11,8 @@ _Request_:
 
 ```typescript
     /**
-     * LSP fields are ignored, unless they are needed to represent PSP fields.
+     * LSP fields will not appear in this definition for the sake of clarity, unless they are needed to represent PSP fields.
+     * Bear in mind that these fields do exists, and are expected during the handshake.
      */
 interface InitializeParams extends WorkDoneProgressParams {
     capabilities: ClientCapabilities;
@@ -40,7 +41,13 @@ interface ClientCapabilities {
         httpRequests?: boolean;
 
         /**
-         * The Client can do dynamic Method registration
+         * The client can register commands.
+         * @since 0.1.0
+         */
+        registerCommand?: boolean;
+
+        /**
+         * The client can do dynamic Method registration
          * @since 0.1.0
          */
         dynamicMethodRegistration?: boolean;
@@ -82,29 +89,36 @@ The server can signal the following capabilities:
 interface ServerCapabilities {
     psp?: {
         /**
-         * The Server is interested in starting LSP servers.
+         * The server is interested in starting LSP servers.
+         * @since 0.1.0
+         * default: false
+         */
+        lsp?: boolean;
+        /**
+         * The server is interested in starting DAP servers.
          * @since 0.1.0
          * default: false
          */
         dap?: boolean;
         /**
-         * The Server is interested in starting DAP servers.
+         * The server is interested in executing http requests.
          * @since 0.1.0
          * default: false
+         * true equals to every capabilities enabled
          */
-        dap?: boolean;
+        httpRequests?: boolean | HTTPCapabilities;
+    
         /**
-         * The Server is interested in executing http requests.
+         * The server is interested in registering commands.
          * @since 0.1.0
-         * default: false
          */
-        httpRequests?: boolean;
+        registerCommand?: boolean;
 
         /**
-         * The Server can do dynamic Method registration
+         * The server can do dynamic Method registration
          * @since 0.1.0
          */
-        hynamicMethodRegistration?: boolean;
+        dynamicMethodRegistration?: boolean;
 
         /**
          * The methods the server would like to subscribe to
@@ -114,6 +128,21 @@ interface ServerCapabilities {
          */
         subscribedMethods?: MethodGroup[] | string[];
     }
+}
+```
+
+* HttpCapabilities:
+
+<div class="anchorHolder"><a href="#httpCapabilities" name="httpCapabilities" class="linkableAnchor"></a></div>
+
+```typescript
+
+export interface HttpCapabilities: {
+    get?: boolean,
+    post?: boolean,
+    delete?: boolean,
+    put?: boolean,
+    redirect?: boolean,
 }
 ```
 
@@ -132,9 +161,7 @@ export enum MethodGroup {
     // All LSP methods
     lsp = 'lsp',
     // All PSP methods, excluding LSP
-    lsp = 'psp',
-    // All methods, PSP and LSP
-    all = 'all',
+    psp = 'psp',
     // No methods
     none = 'none',
 }

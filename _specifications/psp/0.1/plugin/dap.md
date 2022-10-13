@@ -6,11 +6,11 @@ The Start DAP Server request is sent from the server to the client when a standa
 
 *Client Capability*:
 
-* property name (optional): `psp.DAP`
+* property name (optional): `psp.dap`
 
 *Server Capability*:
 
-* property name (optional): `psp.DAP`
+* property name (optional): `psp.dap`
 
 *Request*:
 
@@ -29,7 +29,7 @@ export interface StartDAPParams {
     /**
      * Selection of all file types where the lsp will be in use.
     */
-    languageId: documentSelector;
+    documentSelector: DocumentSelector;
 
     /**
      * Args passed to the invoked LSP server
@@ -56,11 +56,11 @@ The Stop DAP Server request is sent from the server to the client when a standal
 
 *Client Capability*:
 
-* property name (optional): `psp.DAP`
+* property name (optional): `psp.dap`
 
 *Server Capability*:
 
-* property name (optional): `psp.DAP`
+* property name (optional): `psp.dap`
 
 *Request*:
 

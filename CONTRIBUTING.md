@@ -7,4 +7,4 @@ If you are adding, deleting, or modifying methods in any way or shape, please ma
 - When creating a new type, please make sure the name is not already used somewhere else.
 - The `Client Capability` and `Server Capability` need to be updated accordingly. Make sure to check the exhaustive definition of those in the LSP Specification.
 - Tag new additions with the PSP version (eg: if next version is 0.2, tag it with 0.2)
-- If you make a breaking change, mention it in the PR. Or early version of PSP it is possible there are breaking changes added, but overall we try not to break things.
+- If you make a breaking change, mention it in the PR. On early versions of PSP it is possible there are breaking changes added, but overall we try not to break things.

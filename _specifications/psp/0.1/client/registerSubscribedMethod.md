@@ -4,15 +4,15 @@
 
 The `methodclient/registerSubscribedMethod` request is sent from the server to the client to register for a new subscribed method on the client side. Not all clients need to support dynamic method registration. A client and server opts in via the `DynamicMethodRegistration` property on the specific client capabilities.
 
-Server must not register the same subscribed methods both statically through the initialize result and dynamically. If a server wants to support both static and dynamic registration it needs to check the client capability in the initialize request and only register the capability statically if the client doesn't support dynamic registration for that capability.
+Servers must not register the same subscribed methods both statically through the initialize result and dynamically. If a server wants to support both static and dynamic registration it needs to check the client capability in the initialize request and only register the capability statically if the client doesn't support dynamic registration for that capability.
 
 *Client Capability*:
 
-* property name (optional): `psp.DynamicMethodRegistration`
+* property name (optional): `psp.dynamicMethodRegistration`
 
 *Server Capability*:
 
-* property name (optional): `psp.DynamicMethodRegistration`
+* property name (optional): `psp.dynamicMethodRegistration`
 
 *Request*:
 

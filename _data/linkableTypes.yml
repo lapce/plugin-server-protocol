@@ -892,4 +892,5 @@
     link: '#askChoiceResponse'
   - type: 'UnregisterCommandParams'
     link: '#unregisterCommandParams'
-
+  - type: 'HttpCapabilities'
+    link: '#httpCapabilities'
