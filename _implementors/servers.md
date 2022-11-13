@@ -10,5 +10,5 @@ index: 1
 
 | Language | Maintainer | Repository | Implementation Language |
 |------|--------|----------|---------------|
-| Go | [lapce-community](https://github.com/lapce-community) | [tagls](https://github.com/lapce-community/lapce-go) | Go |
+| Go | [lapce-community](https://github.com/lapce-community) | [lapce-go](https://github.com/lapce-community/lapce-go) | Rust |
 {: .table .table-bordered .table-responsive}
