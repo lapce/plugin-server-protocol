@@ -9,7 +9,7 @@ redirect_from:
 
 ## What is the Plugin Server Protocol?
 
-If you are not aware of the Language Server Protocol, please read [this overview]({{ "/overviews/lsp/overview" | prepend: site.baseurl }}) first
+If you are not aware of the Language Server Protocol, please read [this overview](https://microsoft.github.io/language-server-protocol/overviews/lsp/overview/) first
 <br>
 <br>
 
@@ -19,10 +19,7 @@ PSP is a win for both plugin providers and tool vendors!
 
 ## How it works
 
-The Plugin Server Protocol serves as an extension of the existing Language Server Protocol, which standardized how language tooling communicated with editors. Much of the communication and methods are inherited from it, though with some changes:
-
-- New fields in the initialize handshake to subscribe to events that the plugin wishes to receive. A plugin will receive only events it has subscribed to.
-- New methods are added for functionality expected by plugins. (Adding commands to the palette, settings information, starting LSP servers,etc.)
+The Plugin Server Protocol serves as an extension of the existing Language Server Protocol, which standardized how language tooling communicated with editors. Much of the communication and methods are inherited from it, though with some changes: new methods are added for functionality expected by plugins. (Adding commands to the palette, settings information, starting LSP servers,etc.). This allows to broaden a plugin capability to the scope of an entire editor!
 
 ## Capabilities
 
@@ -30,6 +27,4 @@ The PSP inherits the same capabilities defined in the [LSP specification](https:
 
 ## Libraries (SDKs) for PSP providers and consumers
 
-To simplify the implementation of language servers and clients, there are libraries or SDKs:
-
-<!-- //TODO: link PSP server and client sdks (we mostly won't provide client sdk as it would need decoupling of Lapce's proxy inner  workings, but a client sdk definitely needs to be a thing) -->
+To simplify the implementation of language servers and clients, libraries and SDKs are currently being worked on.

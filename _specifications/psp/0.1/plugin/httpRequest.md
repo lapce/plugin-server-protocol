@@ -43,11 +43,11 @@ export interface HttpRequestParams {
     /**
      * Follow redirects.
      * Integer is the number of max hops.
-     * True allows unlimited hops
+     * True allows unlimited hops up to the limit of the client's maximum.
      * False allows no hops
-     * 'default' means the http client gets to decide.
+     * undefined means the http client gets to decide.
     */
-    redirects: boolean | integer | 'default';
+    redirects: boolean | integer;
     /**
      * Body contents.
     */

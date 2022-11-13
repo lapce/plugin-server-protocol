@@ -10,15 +10,14 @@
       anchor: lifeCycleMessages
     - title: Initialize
       anchor: initialize
-    - title: Register Subscribed Method
-      anchor: register_subscribed_method
-    - title: Unregister Subscribed Method
-      anchor: unregister_subscribed_method
   - title: Plugin Features
     anchor: pluginFeatures
     children:
     - title: Overview
       anchor: pluginFeatures
+  - title: Server Protocol Features
+    anchor: serverProtocolFeatures
+    children:
     - title: Start LSP Server
       anchor: startLsp
     - title: Stop LSP Server
@@ -27,21 +26,22 @@
       anchor: startDap
     - title: Stop DAP Server
       anchor: stopDap
+  - title: Command Features
+    anchor: commandFeatures
+    children:
     - title: Make an HTTP Request
       anchor: httpRequest
     - title: Register new Command
       anchor: registerCommand
-    - title: Trigger Command
-      anchor: triggerCommand
-    - title: Ask for user Inputs / choices
-      anchor: askInputChoice
     - title: Unregister command
       anchor: unregisterCommand
-  - title: Workspace Features
-    anchor: workspaceFeatures
-  - title: Window Features
-    anchor: windowFeatures
-  - title: Miscellaneous
-    anchor: miscellaneous
-  - title: Change Log
+    - title: Trigger Command
+      anchor: triggerCommand
+  - title: Interaction Features
+    anchor: interactionFeatures
+    children:
+    - title: Ask for user Inputs / choices
+      anchor: askInputChoice
+
+  - title: ChangeLog
     anchor: changeLog

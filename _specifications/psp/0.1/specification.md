@@ -27,9 +27,6 @@ The current protocol specification defines that the lifecycle of a server is man
 
 {% include_relative general/initialize.md %}
 
-{% include_relative client/registerSubscribedMethod.md %}
-{% include_relative client/unregisterSubscribedMethod.md %}
-
 ### <a href="#pluginFeatures" name="pluginFeatures" class="anchor">Plugin Features</a>
 
 Plugin Features provide much of the behavior in the Plugin Sever Protocol. The main language feature categories are:
@@ -38,7 +35,16 @@ Plugin Features provide much of the behavior in the Plugin Sever Protocol. The m
 * Settings features, like adding new settings or registering commands
 * UI features, like drawing on the screen, or in a new window.
 
+### <a href="#serverProtocolFeatures" name="serverProtocolFeatures" class="anchor">Server Protocol Features</a>
+
 {% include_relative plugin/lsp.md %}
 {% include_relative plugin/dap.md %}
+
+### <a href="#commandFeatures" name="commandFeatures" class="anchor">Command Features</a>
+
 {% include_relative plugin/httpRequest.md %}
+
+### <a href="#interactionFeatures" name="interactionFeatures" class="anchor">Interaction Features</a>
+
 {% include_relative plugin/registerCommand.md %}
+{% include_relative plugin/askChoice.md %}

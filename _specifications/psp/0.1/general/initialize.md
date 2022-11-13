@@ -1,6 +1,6 @@
 #### <a href="#initialize" name="initialize" class="anchor">Initialize Request (:leftwards_arrow_with_hook:)</a>
 
-The initialize request follows the same rules as the initialize request from the [LSP specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#initialize). Additions to this request are the new capabilities, and the subscribed events: A server can choose to dynamically or at startup subscribe to PSP/LSP events. The client will only send the subscribed events to the server.
+The initialize request follows the same rules as the initialize request from the [LSP specification](https://microsoft.github.io/language-server-protocol/specifications/lsp/3.17/specification/#initialize). Additions to this request are the new capabilities, and the subscribed events: A server (plugin) can choose to dynamically or at startup subscribe to PSP/LSP events. The client (editor) will only send the subscribed events to the server.
 
 _Request_:
 
@@ -45,12 +45,6 @@ interface ClientCapabilities {
          * @since 0.1.0
          */
         registerCommand?: boolean;
-
-        /**
-         * The client can do dynamic Method registration
-         * @since 0.1.0
-         */
-        dynamicMethodRegistration?: boolean;
 
         /**
          * The client can handle PSP plugins
@@ -113,12 +107,6 @@ interface ServerCapabilities {
          * @since 0.1.0
          */
         registerCommand?: boolean;
-
-        /**
-         * The server can do dynamic Method registration
-         * @since 0.1.0
-         */
-        dynamicMethodRegistration?: boolean;
 
         /**
          * The methods the server would like to subscribe to
