@@ -1,0 +1,47 @@
+- title: Message Overview
+  reveal: baseProtocol
+  children:
+  - title: Plugin Server Protocol
+    anchor: pluginServerProtocol
+  - title: Lifecycle Messages
+    anchor: lifeCycleMessages
+    children:
+    - title: Overview
+      anchor: lifeCycleMessages
+    - title: Initialize
+      anchor: initialize
+  - title: Plugin Features
+    anchor: pluginFeatures
+    children:
+    - title: Overview
+      anchor: pluginFeatures
+  - title: Server Protocol Features
+    anchor: serverProtocolFeatures
+    children:
+    - title: Start LSP Server
+      anchor: startLsp
+    - title: Stop LSP Server
+      anchor: stopLsp
+    - title: Start DAP Server
+      anchor: startDap
+    - title: Stop DAP Server
+      anchor: stopDap
+  - title: Command Features
+    anchor: commandFeatures
+    children:
+    - title: Make an HTTP Request
+      anchor: httpRequest
+    - title: Register new Command
+      anchor: registerCommand
+    - title: Unregister command
+      anchor: unregisterCommand
+    - title: Trigger Command
+      anchor: triggerCommand
+  - title: Interaction Features
+    anchor: interactionFeatures
+    children:
+    - title: Ask for user Inputs / choices
+      anchor: askInputChoice
+
+  - title: ChangeLog
+    anchor: changeLog
